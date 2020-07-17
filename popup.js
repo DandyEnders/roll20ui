@@ -50,3 +50,16 @@ document.addEventListener('DOMContentLoaded', function(){
         )
     }
 }, false)
+
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelector('[id="GetHP"]').addEventListener('click', 
+    onclick, false)
+
+    function onclick (){
+        chrome.tabs.query({currentWindow: true, active: true},
+            function (tabs){
+                chrome.tabs.sendMessage(tabs[0].id, "GetHP");
+            }
+        )
+    }
+}, false)
